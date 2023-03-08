@@ -22,7 +22,7 @@ export default class ProductManager {
 
     addProduct = async (producto) => {
         const productos = await this.getProducts ();
-        if (!producto.tittle || !producto.descripcion || !producto.price || !producto.thumbnail || !producto.stock || !producto.code){
+        if (!producto.title || !producto.descripcion || !producto.price || !producto.thumbnail || !producto.stock || !producto.code){
             console.error ( 'Campos Obligatorios');
             return;
         };
