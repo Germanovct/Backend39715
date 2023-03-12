@@ -2,13 +2,13 @@
 
 import ProductManager from './ProductManager.js';
 
-const manager = new ProductManager();
+ const manager = new ProductManager();
 
 const env = async () => {
     let primeraConsulta = await manager.getProducts();
     console.log(primeraConsulta);
 
-    const producto = {
+     const producto = {
         nombre: "Woo York - Dystopian EP",
         descripcion: "Vinyl",
         price: "100USD",

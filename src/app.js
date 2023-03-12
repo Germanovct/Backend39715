@@ -1,7 +1,9 @@
 
 
 const express = require ("express");
-const { producto } = require("./products.js");
+const { default: ProductManager } = require("./ProductManager.js");
+const productmanager = new ProductManager ();
+
 
 const products= [ 
     {
@@ -54,15 +56,13 @@ const products= [
 
 const app = express ();
 
-app.get ("/products", (req, res) =>{
-    res.send(products);
-});
 
-app.get ("/products/:productid", (req, res) =>{
+
+app.get ("/products/:productid", async (req, res) =>{
     const productid = req.params.productid;
-    const producto = products.find((u) => u.id === productid);
-    if (!producto) return res.send ({ error: "Producto no encontrado"}); 
-    res.send(producto);
+    const usuario = await productmanager.getProducts(productid);
+    if (!usuario) return res.send ({ error: "Producto no encontrado"}); 
+    res.send(usuario);
 });
 
 
@@ -70,3 +70,4 @@ app.get ("/products/:productid", (req, res) =>{
 app.listen(8080, ()=> {
     console.log("servidor en el puerto 8080");
 });
+
