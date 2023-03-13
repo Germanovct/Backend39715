@@ -1,7 +1,8 @@
 
 
-const express = require ("express");
-const { default: ProductManager } = require("./ProductManager.js");
+import express from 'express';
+import ProductManager from "./ProductManager.js";
+
 const productmanager = new ProductManager ();
 
 
