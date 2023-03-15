@@ -20,6 +20,7 @@ export default class ProductManager {
 
     };
 
+
     addProduct = async (producto) => {
         const productos = await this.getProducts ();
         if (!producto.title || !producto.descripcion || !producto.price || !producto.thumbnail || !producto.stock || !producto.code){
@@ -41,6 +42,16 @@ export default class ProductManager {
         await fs.promises.writeFile (path, JSON.stringify(productos, null, '\t'));
         return producto
     };
+    getProductsById = async (prodId) => {
+        const productos= await this.getProducts();
+        const productoEncontrado = productos.find((e)=> e.id === Number(prodId));
+
+        if(!productoEncontrado){
+            return("producto no encontrado");
+        }else{
+        return productoEncontrado;
+        };
+    }
 
 
      
