@@ -24,17 +24,15 @@ app.get ("/products", async (req, res) =>{
     res.send(usuario);
 });
 
-app.get("/products/:productid"), async (req, res) => {
-    getProductsById = async (prodId) => {
-        const productos= await this.getProducts();
-        const productoEncontrado = productos.find((e)=> e.id === Number(prodId));
-
-        if(!productoEncontrado){
-            return("producto no encontrado");
-        }else{
-        return productoEncontrado;
-        }
-    }};
+app.get("/products/:productId", async (req, res) => {
+    const productId = req.params.productId;
+    const products = await productManager.getProductById(productId);
+    
+    if (!products) return res.status(404).send({ error: 'Producto no encontrado' });
+    
+    res.send(products);
+  });
+  
 
 
 app.listen(8080, ()=> {

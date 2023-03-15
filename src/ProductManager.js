@@ -42,16 +42,7 @@ export default class ProductManager {
         await fs.promises.writeFile (path, JSON.stringify(productos, null, '\t'));
         return producto
     };
-    getProductsById = async (prodId) => {
-        const productos= await this.getProducts();
-        const productoEncontrado = productos.find((e)=> e.id === Number(prodId));
-
-        if(!productoEncontrado){
-            return("producto no encontrado");
-        }else{
-        return productoEncontrado;
-        };
-    }
+    
 
 
      
