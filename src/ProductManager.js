@@ -1,5 +1,3 @@
-
-
 import fs from "fs";
 
 const path = './File/Productos.json';
@@ -20,6 +18,14 @@ export default class ProductManager {
 
     };
 
+    getProductsById = async (prodId) => {
+        const productos= await this.getProducts();
+        const productoEncontrado = productos.filter((e)=> e.Id === prodId.toString());
+      
+        return productoEncontrado;
+      }
+      
+     
 
     addProduct = async (producto) => {
         const productos = await this.getProducts ();

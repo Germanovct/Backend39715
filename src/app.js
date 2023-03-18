@@ -6,31 +6,24 @@ import ProductManager from "./ProductManager.js";
 const productmanager = new ProductManager ();
 
 
-
-
-
-
-
-
-
 const app = express ();
 
 
 
 app.get ("/products", async (req, res) =>{
     const productid = req.params.productid;
-    const usuario = await productmanager.getProducts(productid);
+    const usuario = await productmanager.getProducts();
     if (!usuario) return res.send ({ error: "Producto no encontrado"}); 
     res.send(usuario);
 });
 
 app.get("/products/:productId", async (req, res) => {
     const productId = req.params.productId;
-    const products = await productManager.getProductById(productId);
+    const products = await productmanager.getProductsById(productId.toString());
     
-    if (!products) return res.status(404).send({ error: 'Producto no encontrado' });
-    
-    res.send(products);
+    if (products.length === 0) return res.send({ error: 'Producto no encontrado' });
+      
+    res.send(products[0]);
   });
   
 
