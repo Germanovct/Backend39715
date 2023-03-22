@@ -1,8 +1,9 @@
 import { Router } from "express";
 import ProductManager from "../ProductManager.js";
 
-const router = Router();
+const productRouter = Router();
 const productmanager = new ProductManager ();
+const router = Router();
 
 router.get ("/", async (req, res) =>{
     const productid = req.params.productid;
@@ -29,4 +30,4 @@ router.get("/:productId", async (req, res) => {
     res.send(products[0]);
 });
 
-export default router;
+export default productRouter;

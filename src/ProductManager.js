@@ -48,7 +48,19 @@ export default class ProductManager {
         await fs.promises.writeFile (path, JSON.stringify(productos, null, '\t'));
         return producto
     };
+
+ 
     
+    listProducts = async () => {
+        try {
+            const products = await this.getProducts();
+            return products.map((producto) => ({
+                ...producto
+            }));
+        } catch(err) {
+            throw new Error(`Hubo un error al obtener los productos. Exception: ${err}`);
+        }
+    }
 
 
      
