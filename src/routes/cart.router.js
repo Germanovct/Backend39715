@@ -44,7 +44,8 @@ router.post("/", async (req, res) => {
 router.get("/:cartId", async (req, res) => {
     try {
         const cart = carts.find((c) => c.id === parseInt(req.params.cartId));
-        if(!cart) return res.status({status: `Error`, error: `No se encontró el carrito.`});
+        if(!cart) return res.status(404).send({status: `Error`, error: `No se encontró el carrito.`});
+
         return res
             .status(200)
             .send(cart);

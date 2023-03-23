@@ -1,7 +1,7 @@
 import { Router } from "express";
 import ProductManager from "../ProductManager.js";
 
-const productRouter = Router();
+
 const productmanager = new ProductManager ();
 const router = Router();
 
@@ -30,4 +30,4 @@ router.get("/:productId", async (req, res) => {
     res.send(products[0]);
 });
 
-export default productRouter;
+export default router;
