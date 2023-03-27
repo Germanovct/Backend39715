@@ -85,3 +85,23 @@ socket.on("productCreated", (result) => {
       resultDiv.innerHTML = "Error al crear el producto: " + result.error;
   }
 });
+
+socket.on('submitProduct', async () => {
+  try {
+    const newProduct = await fetch("/api/products").then(response => response.json());
+    await productManager.addProduct(newProduct);
+    socket.emit("productCreated");
+  } catch (error) {
+    socket.emit("productCreated");
+  }
+});
+
+
+socket.on('deleteProduct', async (product) => {
+  try {
+      await productManager.deleteProduct(product.id);
+      socket.emit("productDeleted",);
+  } catch (error) {
+      socket.emit("productDeleted");
+  }
+});

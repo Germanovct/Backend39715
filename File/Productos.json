@@ -1,40 +1,65 @@
-[{
-	"nombre": "Woo York - Dystopian EP",
-	"descripcion": "Vinyl",
-	"price": "100USD",
-	"code": "VA003",
-	"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
-	"stock": "100",
-	"Id": "1"
-},
-{
-	"nombre": "Rodhad - Dystopian EP",
-	"descripcion": "Vinyl",
-	"price": "100USD",
-	"code": "VA003",
-	"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
-	"stock": "100",
-	"Id": "2"
-},
-{
-	"nombre": "Alex.Do - Dystopian EP",
-	"descripcion": "Vinyl",
-	"price": "100USD",
-	"code": "VA003",
-	"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
-	"stock": "100",
-	"Id": "3"
-},
-{
-	"nombre": "Vril - Dystopian EP",
-	"descripcion": "Vinyl",
-	"price": "100USD",
-	"code": "VA003",
-	"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
-	"stock": "100",
-	"Id": "4"
-}
-
+[
+	{
+		"nombre": "Woo York - Dystopian EP",
+		"descripcion": "Vinyl",
+		"price": "100USD",
+		"code": "VA003",
+		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
+		"stock": "100",
+		"Id": "1"
+	},
+	{
+		"nombre": "Rodhad - Dystopian EP",
+		"descripcion": "Vinyl",
+		"price": "100USD",
+		"code": "VA003",
+		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
+		"stock": "100",
+		"Id": "2"
+	},
+	{
+		"nombre": "Alex.Do - Dystopian EP",
+		"descripcion": "Vinyl",
+		"price": "100USD",
+		"code": "VA003",
+		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
+		"stock": "100",
+		"Id": "3"
+	},
+	{
+		"nombre": "Vril - Dystopian EP",
+		"descripcion": "Vinyl",
+		"price": "100USD",
+		"code": "VA003",
+		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
+		"stock": "100",
+		"Id": "4"
+	},
+	{
+		"title": "Germano - Modula ",
+		"description": "Vinyl",
+		"price": 10,
+		"thumbnail": "https://ejemplo.com/imagen.png",
+		"stock": 100,
+		"code": "VA005",
+		"id": null
+	},
+	{
+		"title": "Len Faki ",
+		"description": "Vinyl",
+		"price": 115,
+		"thumbnail": "https://ejemplo.com/imagen200.png",
+		"stock": 100,
+		"code": "VA100",
+		"id": 6
+	},
+	{
+		"title": "Minau ",
+		"description": "Vinyl",
+		"price": 2005,
+		"thumbnail": "https://ejemplo.com/imagen2300.png",
+		"stock": 100,
+		"code": "VA200",
+		"id": 7
+	}
 ]
-
-

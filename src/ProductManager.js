@@ -27,27 +27,26 @@ export default class ProductManager {
       
      
 
-    addProduct = async (producto) => {
-        const productos = await this.getProducts ();
-        if (!producto.title || !producto.descripcion || !producto.price || !producto.thumbnail || !producto.stock || !producto.code){
-            console.error ( 'Campos Obligatorios');
-            return;
-        };
-        const productCode = productos.findIndex((prod) =>prod.code === producto.code);
+      createProduct = async (producto) => {
+        if (!producto.title || !producto.description || !producto.price || !producto.thumbnail || !producto.stock || !producto.code){
+            console.error('Campos Obligatorios');
+            return { error: "Todos los campos son obligatorios" };
+          }
+          
+          const productos = await this.getProducts();
+          const productCode = productos.findIndex((prod) => prod.code === producto.code);
+    
         if(productCode !== -1){
             console.log(`Ya existe el producto con el code : ${producto.Code}`);
             return;
         }
-        if (productos.length === 0){
-            producto.id =1;
-        }
-        else{
-            producto.id =  productos [productos.length -1].id + 1;
-        }
+        
+        producto.id = productos.length + 1; // Asignar un nuevo ID
         productos.push(producto);
         await fs.promises.writeFile (path, JSON.stringify(productos, null, '\t'));
         return producto
     };
+    
 
  
     
