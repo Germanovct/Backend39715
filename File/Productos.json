@@ -61,5 +61,23 @@
 		"stock": 100,
 		"code": "VA200",
 		"id": 7
+	},
+	{
+		"title": "Pfirter ",
+		"description": "Vinyl",
+		"price": 5,
+		"thumbnail": "https://ejemplo.com/imagen2300.png",
+		"stock": 2,
+		"code": "VA700",
+		"id": 8
+	},
+	{
+		"title": "Jeff Mills ",
+		"description": "CD",
+		"price": 10,
+		"thumbnail": "https://ejemplo.com/imagen2300.png",
+		"stock": 2000,
+		"code": "VA800",
+		"id": 9
 	}
 ]

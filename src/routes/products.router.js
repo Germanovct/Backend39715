@@ -1,9 +1,12 @@
-import { Router } from "express";
+import  Router  from "express";
+import socket from '../socket.js';
 import ProductManager from "../ProductManager.js";
+
 
 
 const productmanager = new ProductManager ();
 const router = Router();
+
 
 router.get ("/", async (req, res) =>{
     const productid = req.params.productid;
@@ -55,6 +58,16 @@ router.put("/:productId", async (req, res) => {
     if (deletedProduct.length === 0) return res.send({ error: `Producto con id ${productId} no encontrado` });
     res.send(deletedProduct);
   });
+
+  router.get('/realTimeProducts', async (req, res) => {
+    const products = await productmanager.getProducts();
+    res.render('realTimeProducts', { products });
+  });
+
+  router.get("/", async (req, res) => {
+    const products = await productManager.getProducts();
+    res.render("home", { products });
+});
   
   
 

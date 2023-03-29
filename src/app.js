@@ -7,6 +7,7 @@ import socket from './socket.js';
 import productRouter from './routes/products.router.js';
 import cartProducts from './routes/cart.router.js';
 import router from './routes/views.router.js';
+import cartRouter from "./routes/cart.router.js";
 
 
 
@@ -21,7 +22,7 @@ const httpServer = app.listen(8080, () => {
 });
 
 app.use("/api/products", productRouter);
-
+app.use("/api/carts", cartRouter)
 app.use("/api/carts", cartProducts);
 
 app.engine('handlebars', handlebars.engine());

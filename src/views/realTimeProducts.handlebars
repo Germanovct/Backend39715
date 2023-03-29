@@ -1,14 +1,22 @@
+
+
 <div class="container">
     <h1>Lista de productos</h1>
     <div class="row" id="products-container"></div>
 </div>
+<div>
+  {{#each products}}
+    <p>{{this.title}}</p>
+    <!-- etc. -->
+  {{/each}}
+</div>
 
 <div class="container m-5">
-    <h2>Crear nuevo Disco</h2>
+    <h2>Crear nuevo producto</h2>
     <form id="productForm" enctype="multipart/form-data" method="post">
         <div class="form-group row mt-2">
             <div class="col">
-                <label class="form-label" for="title">Nombre</label>
+                <label class="form-label" for="title">Titulo</label>
                 <input class="form-control" type="text" name="title" id="title">
             </div>
             <div class="col">
@@ -31,10 +39,7 @@
                 <label class="form-label" for="stock">Stock</label>
                 <input class="form-control" type="text" name="stock" id="stock">
             </div>
-            <div class="col">
-                <label class="form-label" for="category">Categoría</label>
-                <input class="form-control" type="text" name="category" id="category">
-            </div>
+            
         </div>
         <div class="form-group row mt-2">
             <div class="col">
@@ -44,10 +49,7 @@
                     <option value="0">Inactivo</option>
                 </select>
             </div>
-            <div class="col">
-                <label for="thumbnails">Imágenes</label>
-                <input type="file" multiple="true" class="form-control-file" id="thumbnails" name="thumbnails">
-            </div>
+            
         </div>
         <div class="form-group row mt-3">
             <div class="col">
@@ -59,4 +61,4 @@
 </div>
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="public/js/index.js"></script>
+<script src="/js/index.js"></script>

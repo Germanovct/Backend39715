@@ -1,4 +1,7 @@
 const socket = io();
+import socket from '../socket.js';
+
+
 
 socket.on("products", (products) => {
   if(products) {
