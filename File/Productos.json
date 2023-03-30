@@ -1,83 +1,83 @@
 [
 	{
-		"nombre": "Woo York - Dystopian EP",
+		"title": "Woo York - Dystopian EP",
 		"descripcion": "Vinyl",
 		"price": "100USD",
 		"code": "VA003",
 		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
 		"stock": "100",
-		"Id": "1"
+		"id": "1"
 	},
 	{
-		"nombre": "Rodhad - Dystopian EP",
+		"title": "Rodhad - Dystopian EP",
 		"descripcion": "Vinyl",
 		"price": "100USD",
 		"code": "VA003",
 		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
 		"stock": "100",
-		"Id": "2"
+		"id": "2"
 	},
 	{
-		"nombre": "Alex.Do - Dystopian EP",
+		"title": "Alex.Do - Dystopian EP",
 		"descripcion": "Vinyl",
 		"price": "100USD",
 		"code": "VA003",
 		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
 		"stock": "100",
-		"Id": "3"
+		"id": "3"
 	},
 	{
-		"nombre": "Vril - Dystopian EP",
+		"title": "Vril - Dystopian EP",
 		"descripcion": "Vinyl",
 		"price": "100USD",
 		"code": "VA003",
 		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
 		"stock": "100",
-		"Id": "4"
+		"id": "4"
 	},
 	{
 		"title": "Germano - Modula ",
 		"description": "Vinyl",
-		"price": 10,
+		"price": "10",
 		"thumbnail": "https://ejemplo.com/imagen.png",
-		"stock": 100,
+		"stock": "100",
 		"code": "VA005",
-		"id": null
+		"id": "5"
 	},
 	{
 		"title": "Len Faki ",
 		"description": "Vinyl",
-		"price": 115,
+		"price": "115",
 		"thumbnail": "https://ejemplo.com/imagen200.png",
-		"stock": 100,
+		"stock": "100",
 		"code": "VA100",
-		"id": 6
+		"id": "6"
 	},
 	{
 		"title": "Minau ",
 		"description": "Vinyl",
-		"price": 2005,
+		"price": "2005",
 		"thumbnail": "https://ejemplo.com/imagen2300.png",
-		"stock": 100,
+		"stock": "100",
 		"code": "VA200",
-		"id": 7
+		"id": "7"
 	},
 	{
 		"title": "Pfirter ",
 		"description": "Vinyl",
-		"price": 5,
+		"price": "5",
 		"thumbnail": "https://ejemplo.com/imagen2300.png",
-		"stock": 2,
+		"stock": "2",
 		"code": "VA700",
-		"id": 8
+		"id": "8"
 	},
 	{
 		"title": "Jeff Mills ",
 		"description": "CD",
-		"price": 10,
+		"price": "10",
 		"thumbnail": "https://ejemplo.com/imagen2300.png",
-		"stock": 2000,
+		"stock": "2000",
 		"code": "VA800",
-		"id": 9
+		"id": "9"
 	}
 ]

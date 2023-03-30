@@ -1,6 +1,7 @@
 import { Router } from "express";
 import CartManager from "../CartManager.js";
 
+
 const manager = new CartManager();
 
 const router = Router();
@@ -58,5 +59,24 @@ router.get("/", async (req, res) => {
     res.send(carts);
   });
   
+  router.delete("/:cid/product/:pid", async (req, res) => {
+    const cartId = parseInt(req.params.cid);
+    const productId = parseInt(req.params.pid);
+  
+    const result = await manager.removeProduct(cartId, productId);
+  
+    if (!result) {
+      return res.status(404).send({
+        status: "Error",
+        error: "Product was not found in the cart",
+      });
+    }
+    return res.send({
+      status: "OK",
+      message: "Product successfully removed from the cart",
+      payload: result,
+    });
+  });
+ 
 
 export default router;

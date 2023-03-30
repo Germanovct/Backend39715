@@ -20,11 +20,11 @@ export default class ProductManager {
 
     getProductsById = async (prodId) => {
         const productos= await this.getProducts();
-        const productoEncontrado = productos.filter((e)=> e.Id === prodId.toString());
+        
+        const productoEncontrado = productos.filter((e)=> e.id === prodId.toString());
       
         return productoEncontrado;
-      }
-      
+    }
      
 
       createProduct = async (producto) => {

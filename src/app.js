@@ -23,7 +23,7 @@ const httpServer = app.listen(8080, () => {
 
 app.use("/api/products", productRouter);
 app.use("/api/carts", cartRouter)
-app.use("/api/carts", cartProducts);
+
 
 app.engine('handlebars', handlebars.engine());
 app.set('view engine', 'handlebars');

@@ -25,13 +25,13 @@ router.get("/", async (req, res) => {
 });
 
 router.get("/:productId", async (req, res) => {
-    const productId = req.params.productId;
-    const products = await productmanager.getProductsById(productId.toString());
-    
-    if (products.length === 0) return res.send({ error: 'Producto no encontrado' });
-      
-    res.send(products[0]);
+  const productId = req.params.productId;
+  const product = await productmanager.getProductsById(productId);
+  res.send(product);
 });
+
+
+
 router.post("/", async (req, res) => {
     const { title, description, price, thumbnail, stock, code } = req.body;
   
@@ -68,7 +68,27 @@ router.put("/:productId", async (req, res) => {
     const products = await productManager.getProducts();
     res.render("home", { products });
 });
+
+
+router.post("/", async (req, res) => {
+  const { title, price, thumbnail } = req.body;
+
+  try {
+    const newProduct = await ProductService.createProduct({
+      title,
+      price,
+      thumbnail,
+    });
   
+    // Emitimos el evento 'newProduct' a través del socket
+    socket.emit("newProduct", newProduct);
+    
+    return res.status(201).send(newProduct);
+  } catch (err) {
+    console.error(err);
+    return res.status(500).send(err.message);
+  }
+});
   
 
 export default router;

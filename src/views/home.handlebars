@@ -1,18 +1,22 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Lista de Productos</title>
-  </head>
-  <body>
-    <h1>Lista de Productos</h1>
-    {{#if products}}
-      <ul>
-        {{#each products}}
-          <li>{{this.title}} - {{this.price}}</li>
-        {{/each}}
-      </ul>
-    {{else}}
-      <p>No hay productos</p>
-    {{/if}}
-  </body>
-</html>
+<h1>Listado de productos</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Descripción</th>
+      <th>Precio</th>
+      <th>Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each products}}
+      <tr>
+        <td>{{this.title}}</td>
+        <td>{{this.description}}</td>
+        <td>{{this.price}}</td>
+        <td>{{this.stock}}</td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

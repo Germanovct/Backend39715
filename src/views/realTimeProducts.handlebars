@@ -1,64 +1,62 @@
+<h2>Real Time Products</h2>
+<ul>
+    {{#each products}}
+        <li>{{id}} - {{name}}: ${{price}} <button onclick="deleteProduct({{id}})">Delete</button></li>
+    {{/each}}
+</ul>
 
-
-<div class="container">
-    <h1>Lista de productos</h1>
-    <div class="row" id="products-container"></div>
-</div>
-<div>
-  {{#each products}}
-    <p>{{this.title}}</p>
-    <!-- etc. -->
-  {{/each}}
-</div>
-
-<div class="container m-5">
-    <h2>Crear nuevo producto</h2>
-    <form id="productForm" enctype="multipart/form-data" method="post">
-        <div class="form-group row mt-2">
-            <div class="col">
-                <label class="form-label" for="title">Titulo</label>
-                <input class="form-control" type="text" name="title" id="title">
-            </div>
-            <div class="col">
-                <label class="form-label" for="description">Descipción</label>
-                <input class="form-control" type="text" name="description" id="description">
-            </div>
-        </div>
-        <div class="form-group row mt-2">
-            <div class="col">
-                <label class="form-label" for="price">Precio</label>
-                <input class="form-control" type="text" name="price" id="price">
-            </div>
-            <div class="col">
-                <label class="form-label" for="code">Código</label>
-                <input class="form-control" type="text" name="code" id="code">
-            </div>
-        </div>
-        <div class="form-group row mt-2">
-            <div class="col">
-                <label class="form-label" for="stock">Stock</label>
-                <input class="form-control" type="text" name="stock" id="stock">
-            </div>
-            
-        </div>
-        <div class="form-group row mt-2">
-            <div class="col">
-                <label for="state">Estado</label>
-                <select name="status" id="status" class="form-control">
-                    <option value="1">Activo</option>
-                    <option value="0">Inactivo</option>
-                </select>
-            </div>
-            
-        </div>
-        <div class="form-group row mt-3">
-            <div class="col">
-                <input type="submit" value="Crear producto" class="btn btn-primary" id="submitForm">
-            </div>
-        </div>
-        <div class="m-3" id="result"></div>
-    </form>
-</div>
+<form id="addProductForm">
+  <label for="name">Name:</label>
+  <input type="text" name="name" id="name">
+  <br>
+  <label for="description">Description:</label>
+  <textarea name="description" id="description"></textarea>
+  <br>
+  <label for="price">Price:</label>
+  <input type="number" name="price" id="price">
+  <br>
+  <button type="submit">Add Product</button>
+</form>
 
 <script src="/socket.io/socket.io.js"></script>
-<script src="/js/index.js"></script>
+<script>
+  const socket = io();
+  
+  socket.on("new-product", product => {
+    const li = document.createElement("li");
+    li.textContent = `${product.id} - ${product.name}: $${product.price} `;
+    const button = document.createElement("button");
+    button.textContent = "Delete";
+    button.onclick = () => deleteProduct(product.id);
+    li.appendChild(button);
+    document.querySelector("ul").appendChild(li);
+  });
+
+  socket.on("product-deleted", id => {
+    const lis = document.querySelectorAll("li");
+    lis.forEach(li => {
+      if (li.textContent.includes(id)) {
+        li.remove();
+      }
+    });
+  });
+
+  function deleteProduct(id) {
+    fetch(`/delete-product/${id}`, { method: "DELETE" })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+  }
+
+  document.querySelector("#addProductForm").addEventListener("submit", event => {
+    event.preventDefault();
+    const name = document.querySelector("#name").value;
+    const description = document.querySelector("#description").value;
+    const price = document.querySelector("#price").value;
+    const body = JSON.stringify({ name, description, price });
+    fetch("/add-product", { method: "POST", body, headers: { "Content-Type": "application/json" } })
+      .then(response => response.json())
+      .then(data => console.log(data))
+      .catch(error => console.error(error));
+  });
+</script>

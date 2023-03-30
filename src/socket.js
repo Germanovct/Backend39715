@@ -1,8 +1,10 @@
 import { Server } from 'socket.io';
 import ProductManager from './ProductManager.js';
+import { io } from "socket.io-client";
 
 const productManager = new ProductManager();
 const products = await productManager.listProducts();
+
 
 const socket = {};
 
