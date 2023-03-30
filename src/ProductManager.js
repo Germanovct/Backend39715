@@ -21,7 +21,7 @@ export default class ProductManager {
     getProductsById = async (prodId) => {
         const productos= await this.getProducts();
         
-        const productoEncontrado = productos.filter((e)=> e.id === prodId.toString());
+        const productoEncontrado = productos.filter((e)=> e.id == prodId.toString());
       
         return productoEncontrado;
     }
@@ -41,7 +41,7 @@ export default class ProductManager {
             return;
         }
         
-        producto.id = productos.length + 1; // Asignar un nuevo ID
+        producto.id = productos.length + 1; 
         productos.push(producto);
         await fs.promises.writeFile (path, JSON.stringify(productos, null, '\t'));
         return producto
