@@ -83,19 +83,10 @@
 	{
 		"title": "Robert Hood ",
 		"description": "Vinyl",
-		"price": 1220,
-		"thumbnail": "https://ejemplo.com/imagen2300.png",
-		"stock": 1000,
-		"code": "V01",
-		"id": 10
-	},
-	{
-		"title": "Audion ",
-		"description": "Vinyl",
-		"price": "1250",
+		"price": "1220",
 		"thumbnail": "https://ejemplo.com/imagen2300.png",
 		"stock": "1000",
-		"code": "V012",
-		"id": 11
+		"code": "V01",
+		"id": "10"
 	}
 ]
