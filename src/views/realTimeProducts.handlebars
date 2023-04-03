@@ -1,62 +1,15 @@
-<h2>Real Time Products</h2>
-<ul>
-    {{#each products}}
-        <li>{{id}} - {{name}}: ${{price}} <button onclick="deleteProduct({{id}})">Delete</button></li>
-    {{/each}}
-</ul>
 
-<form id="addProductForm">
-  <label for="name">Name:</label>
-  <input type="text" name="name" id="name">
-  <br>
-  <label for="description">Description:</label>
-  <textarea name="description" id="description"></textarea>
-  <br>
-  <label for="price">Price:</label>
-  <input type="number" name="price" id="price">
-  <br>
-  <button type="submit">Add Product</button>
-</form>
-
+<div id="products">
+  {{#each products}}
+    <div class="gallery">
+       <h2>{{this.title}}</h2>
+        <p>{{this.description}}</p>
+        <p>Precio: {{this.price}} USD</p>
+        <p>Código: {{this.code}}</p>
+        <p>Stock: {{this.stock}}</p>
+        <p>ID: {{this.id}}</p>
+    </div>
+  {{/each}}
+</div>
 <script src="/socket.io/socket.io.js"></script>
-<script>
-  const socket = io();
-  
-  socket.on("new-product", product => {
-    const li = document.createElement("li");
-    li.textContent = `${product.id} - ${product.name}: $${product.price} `;
-    const button = document.createElement("button");
-    button.textContent = "Delete";
-    button.onclick = () => deleteProduct(product.id);
-    li.appendChild(button);
-    document.querySelector("ul").appendChild(li);
-  });
-
-  socket.on("product-deleted", id => {
-    const lis = document.querySelectorAll("li");
-    lis.forEach(li => {
-      if (li.textContent.includes(id)) {
-        li.remove();
-      }
-    });
-  });
-
-  function deleteProduct(id) {
-    fetch(`/delete-product/${id}`, { method: "DELETE" })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
-  }
-
-  document.querySelector("#addProductForm").addEventListener("submit", event => {
-    event.preventDefault();
-    const name = document.querySelector("#name").value;
-    const description = document.querySelector("#description").value;
-    const price = document.querySelector("#price").value;
-    const body = JSON.stringify({ name, description, price });
-    fetch("/add-product", { method: "POST", body, headers: { "Content-Type": "application/json" } })
-      .then(response => response.json())
-      .then(data => console.log(data))
-      .catch(error => console.error(error));
-  });
-</script>
+<script src="/js/index.js"></script>

@@ -1,22 +1,22 @@
-<h1>Listado de productos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Nombre</th>
-      <th>Descripción</th>
-      <th>Precio</th>
-      <th>Stock</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each products}}
-      <tr>
-        <td>{{this.title}}</td>
-        <td>{{this.description}}</td>
-        <td>{{this.price}}</td>
-        <td>{{this.stock}}</td>
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Productos</h1>
+    </div>
+  </div>
+  {{#each products}}
+    <div class="row">
+      <div class="col-md-3">
+        <img src="{{this.thumbnail}}" alt="{{this.title}}" class="img-fluid">
+      </div>
+      <div class="col-md-9">
+        <h2>{{this.title}}</h2>
+        <p>{{this.description}}</p>
+        <p>Precio: {{this.price}} USD</p>
+        <p>Código: {{this.code}}</p>
+        <p>Stock: {{this.stock}}</p>
+        <p>ID: {{this.id}}</p>
+      </div>
+    </div>
+  {{/each}}
+</div>

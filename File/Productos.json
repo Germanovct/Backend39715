@@ -1,37 +1,37 @@
 [
 	{
 		"title": "Woo York - Dystopian EP",
-		"descripcion": "Vinyl",
+		"description": "Vinyl",
 		"price": "100USD",
 		"code": "VA003",
-		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
+		"thumbnail": "https://ejemplo.com/imagen.png",
 		"stock": "100",
 		"id": "1"
 	},
 	{
 		"title": "Rodhad - Dystopian EP",
-		"descripcion": "Vinyl",
+		"description": "Vinyl",
 		"price": "100USD",
 		"code": "VA003",
-		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
+		"thumbnail": "https://ejemplo.com/imagen.png",
 		"stock": "100",
 		"id": "2"
 	},
 	{
 		"title": "Alex.Do - Dystopian EP",
-		"descripcion": "Vinyl",
+		"description": "Vinyl",
 		"price": "100USD",
 		"code": "VA003",
-		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
+		"thumbnail": "https://ejemplo.com/imagen.png",
 		"stock": "100",
 		"id": "3"
 	},
 	{
 		"title": "Vril - Dystopian EP",
-		"descripcion": "Vinyl",
+		"description": "Vinyl",
 		"price": "100USD",
 		"code": "VA003",
-		"thumbnail": "https://semanticarecords.bandcamp.com/album/frozen-lake-semantica-84",
+		"thumbnail": "https://ejemplo.com/imagen.png",
 		"stock": "100",
 		"id": "4"
 	},
@@ -88,5 +88,14 @@
 		"stock": 1000,
 		"code": "V01",
 		"id": 10
+	},
+	{
+		"title": "Audion ",
+		"description": "Vinyl",
+		"price": "1250",
+		"thumbnail": "https://ejemplo.com/imagen2300.png",
+		"stock": "1000",
+		"code": "V012",
+		"id": 11
 	}
 ]
