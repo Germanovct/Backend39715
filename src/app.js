@@ -17,9 +17,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use("/", express.static(`${__dirname}/public`));
 
-const httpServer = app.listen(8080, () => {
-    console.log("Server runing at port 8080");
-});
+
 
 app.use("/api/products", productRouter);
 app.use("/api/carts", cartRouter)
@@ -31,5 +29,9 @@ app.set("views", `${__dirname}/views`);
 
 app.use("/", router);
 export default app;
+
+const httpServer = app.listen(8080, (req, res) => {
+    console.log("Listening on port 8080");
+  });
 
 socket.connect(httpServer);

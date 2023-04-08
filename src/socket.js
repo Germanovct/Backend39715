@@ -1,6 +1,7 @@
 import { Server } from 'socket.io';
 import ProductManager from './ProductManager.js';
-import { io } from "socket.io-client";
+
+
 
 const productManager = new ProductManager();
 const products = await productManager.listProducts();
@@ -13,7 +14,7 @@ socket.connect = function(httpServer) {
     let { io } = socket;
 
     io.on("connection", (socket) => {
-        console.log(`${socket.id} conectado`);
+        console.log(`${socket.id} connected`);
         io.emit("products", products);
     });
 };
