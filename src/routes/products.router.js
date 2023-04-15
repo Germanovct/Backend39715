@@ -1,14 +1,32 @@
 import  Router  from "express";
-import socket from '../socket.js';
-import ProductManager from "../ProductManager.js";
+/*import socket from '../socket.js';*/
+
+import ProductManager from "../dao/dbManagers/productManager.js";
 
 
 
-const productmanager = new ProductManager ();
+const productManager = new ProductManager ();
 const router = Router();
 
-
 router.get ("/", async (req, res) =>{
+  const products = await ProductManager.findAll();
+  return products;
+});
+
+router.post("/", async (req, res) => {
+  const { title, description, price, thumbnail, stock, code } = req.body;
+
+  if (!title || !description || !price || !thumbnail || !stock || !code) {
+    return res.status(400).send({ error: "Todos los campos son obligatorios" });
+  }
+
+  const newProduct = await productmanager.createProduct(req.body);
+  res.send(newProduct);
+});
+
+
+
+/*router.get ("/", async (req, res) =>{
     const productid = req.params.productid;
     const usuario = await productmanager.getProducts();
     if (!usuario) return res.send ({ error: "Producto no encontrado"}); 
@@ -88,7 +106,6 @@ router.post("/", async (req, res) => {
     console.error(err);
     return res.status(500).send(err.message);
   }
-});
-  
+});*/
 
 export default router;
