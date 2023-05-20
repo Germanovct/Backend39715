@@ -7,12 +7,21 @@ export default class productManager {
         findAll = async () =>{
 
             try{
-         const product =  await productModel.find();
+         const products =  await productModel.find();
          return products;
             } catch (error){
                 console.log(error);
             }
 
+        };
+
+        create = async (product) => {
+            try {
+                const createProduct = await productModel.create(product);
+                return createProduct;
+            } catch (error) {
+             console.log(error);;
+            }
         }
     
 }

@@ -1,4 +1,4 @@
-const socket = io();
+/*const socket = io();
 
 
 let productsElem = document.getElementById("products");
@@ -13,3 +13,34 @@ socket.on("product_added", (product) => {
 socket.on("product_deleted", (productIndex) => {
   productsElem.removeChild(productsElem.children[productIndex]);
 });
+*/
+
+const form = document.getElementById("cookieForm");
+
+form.addEventListener("submit", async (evt)=>{
+  evt.preventDefault();
+
+  const obj ={};
+  const data = new FormData (form);
+
+  data.forEach((value, key)=>{
+    obj [key] =value;
+  });
+
+  let response = await fetch ("/createCookie", {
+    method: "POST",
+    body: JSON.stringify(obj),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  let result = await response.json();
+  console.log(result);
+
+
+});
+
+const getCookies = () =>{
+  console.log(document.cookie);
+};
+

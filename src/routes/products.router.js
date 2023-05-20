@@ -1,19 +1,36 @@
 import  Router  from "express";
-/*import socket from '../socket.js';*/
+import { productModel } from "../dao/models/product.model.js";
 
-import ProductManager from "../dao/dbManagers/productManager.js";
+import productManager from "../dao/dbManagers/productManager.js";
 
 
 
-const productManager = new ProductManager ();
+const ProductManager = new productManager ();
+
 const router = Router();
 
+
+
 router.get ("/", async (req, res) =>{
-  const products = await ProductManager.findAll();
-  return products;
+  const page = req.query.page;
+  const products = await productModel.paginate({description: "Vinyl"}, {limit:10 , page})
+
+  console.log(products)
+  return res.send ({status: "success", payload: products});
 });
 
 router.post("/", async (req, res) => {
+ const product = req.body;
+ const  createProduct = await  ProductManager.create(product);
+ if (!createProduct){
+  return res.status(400).send({status: "error", error: "Duplicate Product"})
+ }
+
+ return res.send ({status: "success", payload: createProduct});
+});
+
+
+/*router.post("/", async (req, res) => {
   const { title, description, price, thumbnail, stock, code } = req.body;
 
   if (!title || !description || !price || !thumbnail || !stock || !code) {
@@ -22,7 +39,7 @@ router.post("/", async (req, res) => {
 
   const newProduct = await productmanager.createProduct(req.body);
   res.send(newProduct);
-});
+});/*
 
 
 

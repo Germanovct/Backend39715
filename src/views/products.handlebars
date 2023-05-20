@@ -1,0 +1,15 @@
+<!-- Agrega los botones dentro del cuerpo de la página -->
+<div>
+  <button id="prev-page">PrevPage</button>
+  <button id="next-page">NextPage</button>
+</div>
+
+<!-- Agrega el código Handlebars para mostrar los productos en la página actual -->
+{{#each products}}
+  <div>
+    <h3>{{title}}</h3>
+    <p>{{description}}</p>
+    <p>Price: {{price}} USD</p>
+    <img src="{{thumbnail}}" alt="Product thumbnail">
+  </div>
+{{/each}}
